@@ -4,7 +4,11 @@ import Peer from 'peerjs';
 function App() {
   const myVideoRef = useRef();
   const remoteVideoRef = useRef();
-  const peer = new Peer(); // Peer sunucusu bağlantısı (kendi sunucunuzu yapılandırmalısınız)
+  const peer = new Peer(undefined, {
+    host: '/',
+    port: 443, // Sunucu portu
+    secure: true,
+  }); // Peer sunucusu bağlantısı (kendi sunucunuzu yapılandırmalısınız)
 
   useEffect(() => {
     const initializeVideoChat = async () => {
